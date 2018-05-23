@@ -47,13 +47,13 @@ void mgos_WS2812FX_setMode(WS2812FX *d, int m) {
   d->setMode(m);
 }
 
-int mgos_WS2812FX_start(WS2812FX *d) {
+mgos_timer_id mgos_WS2812FX_start(WS2812FX *d) {
   if (d == nullptr) return 0;
   d->start();
   return mgos_set_timer(16, MGOS_TIMER_REPEAT, (void (*)(void*))mgos_WS2812FX_service, d);
 }
 
-void mgos_WS2812FX_stop(WS2812FX *d, int t) {
+void mgos_WS2812FX_stop(WS2812FX *d, mgos_timer_id t) {
   if (d == nullptr) return;
   if (t > 0) mgos_clear_timer(t);
   d->stop();

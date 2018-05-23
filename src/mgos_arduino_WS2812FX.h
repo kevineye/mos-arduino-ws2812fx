@@ -19,8 +19,8 @@ void mgos_WS2812FX_setColorRGB(WS2812FX *d, int r, int g, int b);
 void mgos_WS2812FX_setColor(WS2812FX *d, int c);
 void mgos_WS2812FX_setMode(WS2812FX *d, int m);
 
-int mgos_WS2812FX_start(WS2812FX *d);
-void mgos_WS2812FX_stop(WS2812FX *d, int);
+mgos_timer_id mgos_WS2812FX_start(WS2812FX *d);
+void mgos_WS2812FX_stop(WS2812FX *d, mgos_timer_id timer);
 bool mgos_WS2812FX_isRunning(WS2812FX *d);
 void mgos_WS2812FX_service(WS2812FX *d);
 
